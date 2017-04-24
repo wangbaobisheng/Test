@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory name="foo">	  
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property> 
+		<property name="connection.url">jdbc:mysql://localhost:3306/hibernate_20120328</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">wanbao</property>
+		<property name="show_sql">true</property>
+		
+		<!-- 
+		 create:先删除，再创建
+		 update:不存在就创建，如果有就不改
+		 create-drop:创建时新增，结束时删除
+		 validate:验证表结构是否一致，不一致就抛出异常
+		 -->
+		<property name="hbm2ddl.auto">update</property>
+		
+		
+		<!--  导入映射文件-->
+		<mapping resource="com/huawei/wanbao/test/User.hbm.xml"/>
+		
+	</session-factory>
+</hibernate-configuration>
